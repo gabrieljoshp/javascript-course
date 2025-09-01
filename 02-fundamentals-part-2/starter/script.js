@@ -189,42 +189,44 @@ const grades = [78, 85, 92, 67, 88, 95, 73, 82];
 
 // Function to calculate average
 function calculateAverage(grades) {
-    let total = 0;
-    grades.forEach((grade) => {
-         total += grade;
-    });
-    return total / grades.length;
+    let sum = 0;
+    for (let i = 0; i < grades.length; i++) {
+      sum += grades[i];
+    }
+    return sum / grades.length;
 }
 
 // Function to find highest grade
 function findHighestGrade(grades) {
-  let highestGrade = 0;
-    grades.forEach((grade) => {if (highestGrade < grade) {
-            highestGrade = grade;
-        }
-    });
-    return highestGrade;
+  let highest = grades[0];
+    for (let i = 1; i < grades.length; i++) {
+      if (grades[i] > highest) {
+        highest = grades[i];
+      }
+    }
+    return highest;
 }
 
 // Function to find lowest grade
 function findLowestGrade(grades) {
-  let lowestGrade = 0;
-    grades.forEach((grade) => {if (lowestGrade === 0){
-            lowestGrade = grade;
-        } else if (lowestGrade > grade) {
-            lowestGrade = grade;
-        }
-    });
-    return lowestGrade;
+  let lowest = grades[0];
+    for (let i = 1; i < grades.length; i++) {
+      if (grades[i] < lowest) {
+          lowest = grades[i];
+      }
+    }
+    return lowest;
 }
 
 // Function to count passing students
 function countPassing(grades, passingGrade) {
-  let passedCount = 0;
-grades.forEach((grade) => {
-  if (grade >= passingGrade) passedCount++;
-});
-    return passedCount;
+  let count = 0;
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= passingGrade) {
+      count++;
+    }
+  }
+  return count;
 }
 
 // Generate complete report
